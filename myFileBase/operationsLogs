@@ -1,0 +1,20 @@
+NUM_COMPTE			DATE			TYPE			MESSAGE
+b-co001			2023-02-03	CREATION		Compte b-co001 crée		NULL
+b-co002			2023-02-03	CREATION		Compte b-co002 crée		NULL
+b-co002			2023-02-10	VERSEMENT		2000 versé à votre profit parAmina Kziber		
+b-co002			2023-02-10	VERSEMENT		2000 versé à votre profit parAmina Kziber		
+b-co001			2023-02-10	VERSEMENT		500 versé à votre profit par Amina Kziber	
+b-co002			2023-02-11	RETRAIT		50 Retiré de votre compte 		
+b-co002			2023-02-11	VIREMENT		50Vous avez effectué un virement au profit de Amina Kziber		
+b-co001			2023-02-11	VIREMENT		50Vous avez reçu un virement de la part de Amina Kziber		
+b-co001			2023-02-11	VERSEMENT		200 versé à votre profit par Amina Kziber		
+b-co003			2023-02-13	CREATION		Compte b-co003 crée		
+b-co005			2023-02-13	CREATION		Compte b-co005 crée	
+b-co004			2023-02-14	CREATION		Compte b-co004 crée		
+b-co006			2023-02-14	CREATION		Compte b-co006 crée		
+b-co004			2023-02-14	VIREMENT		Vous avez effectué un virement de 5Dhs au profit de Ahmed Laarabi compte N° b-co005		
+b-co005			2023-02-14	VIREMENT		Vous avez reçu un virement de5 Dhs de la part de Nisrin Azzaim		
+b-co003			2023-02-14	VERSEMENT		4500 versé à votre profit par Hamada Dika		
+b-co003			2023-02-14	RETRAIT		300 Retiré de votre compte 		
+b-co005			2023-02-14	VERSEMENT		670 versé à votre profit par Ahmed Laarabi		
+b-co004			2023-02-14	CREATION		Compte b-co004 crée		

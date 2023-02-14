@@ -1,0 +1,2 @@
+ID			NOM						EMAIL						TELEPHONE		ADRESSE
+1			Agence Assalam			Assalam@mail.com			05127683			Rabat		NULL
