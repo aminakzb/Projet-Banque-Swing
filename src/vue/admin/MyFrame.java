@@ -1,29 +1,40 @@
 package vue.admin;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import vue.palette.HeaderPanel;
 import vue.palette.SideMenuPanel;
-import vue.palette.TablePanel;
+import vue.palette.TablePanelAgence;
+import vue.palette.TablePanelClient;
+import vue.palette.TablePanelCompte;
 
 public class MyFrame extends JFrame {
 
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Container container;
-	TablePanel tablePanel;
+	TablePanelCompte tablePanelCompte;
+	TablePanelAgence TablePanelAgence;
+	TablePanelClient TablePanelClient;
 	HeaderPanel header;
 	SideMenuPanel menuPanel;
+	AdminAccueilPanel adminAccueil;
+	JPanel cardsPanel;
+	CardLayout layout;
 
 	public HeaderPanel getHeader() {
 		return header;
@@ -42,8 +53,15 @@ public class MyFrame extends JFrame {
 	}
 
 	private void initPanels() {
-		tablePanel = new TablePanel();
-		tablePanel.setBorder(new EmptyBorder(15, 15, 0, 15));
+
+		tablePanelCompte = new TablePanelCompte();
+		tablePanelCompte.setBorder(new EmptyBorder(15, 15, 0, 15));
+
+		TablePanelClient = new TablePanelClient();
+		TablePanelClient.setBorder(new EmptyBorder(15, 15, 0, 15));
+
+		TablePanelAgence = new TablePanelAgence();
+		TablePanelAgence.setBorder(new EmptyBorder(15, 15, 0, 15));
 		menuPanel = new SideMenuPanel("Accueil", "Client", "Compte", "Agence");
 
 		Font logoFont = new Font("Optima", Font.BOLD, 15);
@@ -52,6 +70,11 @@ public class MyFrame extends JFrame {
 				new ImageIcon("src/images/icons/menu.png"), "", Color.BLACK, logoFont);
 		header.addText("Session Admin");
 		header.addbtnLogout(this);
+
+		adminAccueil = new AdminAccueilPanel();
+		cardsPanel = new JPanel();
+		layout = new CardLayout();
+
 		initActions();
 	}
 
@@ -59,37 +82,49 @@ public class MyFrame extends JFrame {
 		initPanels();
 		container = getContentPane();
 		container.setLayout(new BorderLayout());
-		container.add(tablePanel, BorderLayout.CENTER);
+		cardsPanel.setLayout(layout);
+		cardsPanel.add(adminAccueil);
+		container.add(cardsPanel, BorderLayout.CENTER);
 		container.add(menuPanel, BorderLayout.WEST);
 		container.add(header, BorderLayout.NORTH);
+
 	}
 
 	private void initActions() {
 
 		var buttons = menuPanel.getButtons();
-		buttons.get("Accueil").addActionListener(click -> {
-			new AdminAccueilFrame("Accueil");
-			setVisible(false);
+		buttons.get("Accueil").addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				layout.first(cardsPanel);
+			}
 		});
-		buttons.get("Client").addActionListener(click -> {
-			AdminAccueilFrame.setOtherTablesFalse();
-			AdminAccueilFrame.setTableClient(true);
-			new MyFrame("MyBank Manager Clients");
-			setVisible(false);
+		buttons.get("Client").addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardsPanel.add(TablePanelClient);
+				layout.last(cardsPanel);
+
+			}
+
 		});
 
-		buttons.get("Compte").addActionListener(click -> {
-			AdminAccueilFrame.setOtherTablesFalse();
-			AdminAccueilFrame.setTableCompte(true);
-			new MyFrame("MyBank Manager Accounts");
-			setVisible(false);
+		buttons.get("Compte").addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardsPanel.add(tablePanelCompte);
+				layout.last(cardsPanel);
+			}
 		});
-		buttons.get("Agence").addActionListener(click -> {
-			AdminAccueilFrame.setOtherTablesFalse();
-			AdminAccueilFrame.setTableAgence(true);
-			new MyFrame("MyBank Manager Agencies");
-			setVisible(false);
+		buttons.get("Agence").addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardsPanel.add(TablePanelAgence);
+				layout.last(cardsPanel);
+			}
 		});
+
 		buttons.get("Accueil").addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {

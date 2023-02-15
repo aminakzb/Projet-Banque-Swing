@@ -16,8 +16,8 @@ import javax.swing.JPasswordField;
 import metier.authentification.ServiceAuth;
 import presentation.modele.Admin;
 import presentation.modele.Client;
-import vue.admin.AdminAccueilFrame;
-import vue.client.ClientAccueilFrame;
+import vue.admin.MyFrame;
+import vue.client.ClientFrame;
 import vue.palette.HintTextField;
 import vue.palette.JCheckBoxIcon;
 import vue.palette.Labels;
@@ -164,10 +164,10 @@ public class LoginFrame extends JFrame {
 			service.seConnecter(login, pass);
 			if (service.seConnecter(login, pass).isEmpty()) {
 				if (ServiceAuth.getSession() instanceof Admin) {
-					new AdminAccueilFrame("Admin Acceuil");
+					new MyFrame("Bank Manager Admin");
 					setVisible(false);
 				} else if (ServiceAuth.getSession() instanceof Client) {
-					new ClientAccueilFrame("Client Acceuil");
+					new ClientFrame("Bank Manager Client");
 					setVisible(false);
 				} else
 					errorLogin.setVisible(true);

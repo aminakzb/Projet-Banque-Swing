@@ -119,18 +119,15 @@ public class TableModel extends AbstractTableModel {
 	public Object getValueAt(int row, int col) {
 		return data[row][col];
 	}
-
-	@Override
-	public boolean isCellEditable(int rowIndex, int columnIndex) {
-
-		return true;
-	}
-
-	@Override
-	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
-		data[rowIndex][columnIndex] = aValue;
-		this.fireTableCellUpdated(rowIndex, columnIndex);
-	}
-
+	/*
+	 * @Override public boolean isCellEditable(int rowIndex, int columnIndex) {
+	 * 
+	 * return true; }
+	 * 
+	 * @Override public void setValueAt(Object aValue, int rowIndex, int
+	 * columnIndex) {
+	 * 
+	 * data[rowIndex][columnIndex] = aValue; this.fireTableCellUpdated(rowIndex,
+	 * columnIndex); }
+	 */
 }

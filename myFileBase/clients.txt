@@ -4,3 +4,4 @@ ID			NOM			PRENOM			LOGIN			MOT DE PASS			CIN			EMAIL			TELEPHONE			SEXE			ID_AG
 3			Kziber	Amina		aminakz		123456		AE12345			amina@gmail.com	21261234656		FEMME		NULL
 4			Elguaraa	Milouda		milouda		123456		AA345566			Milouda@gmail.com	0612094302		FEMME		NULL
 5			Dika	Hamada		Hamada		123456		W12976			Hamada@gmail.com	0743668811		HOMME		NULL
+6			aaaaa	aaaaaaa		eorutn		atsjxi		aaaaaa			atyuee@	876543		HOMME		1

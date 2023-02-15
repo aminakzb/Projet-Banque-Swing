@@ -9,8 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import vue.admin.AdminAccueilFrame;
-
 public class TableCrudPanel extends JPanel {
 
 	private ClassLoader cl = getClass().getClassLoader();
@@ -94,14 +92,9 @@ public class TableCrudPanel extends JPanel {
 		initButtons();
 		setLayout(new FlowLayout());
 		setBackground(Color.white);
-		if (AdminAccueilFrame.isTableClient()) {
-			add(btn_add);
-			add(btn_edit);
-			add(btn_remove);
-		} else if (AdminAccueilFrame.isTableCompte()) {
-			add(btn_add);
-		}
-
+		add(btn_add);
+		add(btn_edit);
+		add(btn_remove);
 	}
 
 }

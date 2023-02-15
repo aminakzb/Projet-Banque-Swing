@@ -16,7 +16,8 @@ import presentation.modele.Client;
 import presentation.modele.Sexe;
 import vue.palette.HintTextField;
 import vue.palette.Labels;
-import vue.palette.TablePanel;
+import vue.palette.TablePanelClient;
+import vue.palette.TablePanelCompte;
 
 public class EditClientFrame extends JFrame {
 
@@ -25,7 +26,7 @@ public class EditClientFrame extends JFrame {
 	private JTextField textFieldNom, sexeLbl, textFieldPrenom, textFieldEmail, textFieldCin, textFieldTel,
 			textFieldLogin, textFieldMotDePass;
 	private JButton editButton;
-	private TablePanel tablePanel;
+	private TablePanelClient tablePanelClient;
 	private JLabel errorLabelLogin, errorLabelMdp, errorLabelNom, errorLabelPrenom, errorLabelEmail, errorLabelTel,
 			errorLabelCin;
 	private static final String FIELD_LOGIN = "Login", FIELD_PASS = "Mot de passe", FIELD_EMAIL = "Email",
@@ -166,10 +167,10 @@ public class EditClientFrame extends JFrame {
 	public void initTextFieldsEditClient() {
 		String sexeString;
 		ClientDao clientEdit = new ClientDao();
-		tablePanel = new TablePanel();
-		int row = TablePanel.row;
+		tablePanelClient = new TablePanelClient();
+		int row = TablePanelCompte.row;
 
-		id = (Long) TablePanel.getIdClient();
+		id = (Long) TablePanelClient.getIdClient();
 		String nom = (String) clientEdit.findById(id).getNom();
 		String prenom = (String) clientEdit.findById(id).getPrenom();
 		String login = (String) clientEdit.findById(id).getLogin();

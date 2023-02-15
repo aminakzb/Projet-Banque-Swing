@@ -17,13 +17,15 @@ import presentation.modele.Log;
 import presentation.modele.Sexe;
 import presentation.modele.TableauDeBord;
 import presentation.modele.TypeLog;
-import vue.admin.AdminAccueilFrame;
-import vue.palette.TablePanel;
+import vue.admin.AdminAccueilPanel;
+import vue.palette.TablePanelClient;
+import vue.palette.TablePanelCompte;
 
 public class ServiceAdmin extends JComponent implements IServiceAdmin {
 	private Client client;
 	private ClientFormValidator validator;
-	private TablePanel tablePanel;
+	private TablePanelCompte tablePanelCompte;
+	private TablePanelClient tablePanelClient;
 	private Double maxSolde = 0.0;
 
 	public ClientFormValidator getValidator() {
@@ -52,7 +54,7 @@ public class ServiceAdmin extends JComponent implements IServiceAdmin {
 			new ClientDao().save(newclient);
 
 			var list = new ClientDao().findAll();
-			TablePanel.getTableModel().initClientsData(list);
+			TablePanelClient.getTableModel().initClientsData(list);
 
 		}
 		return newclient;
@@ -69,7 +71,7 @@ public class ServiceAdmin extends JComponent implements IServiceAdmin {
 		new LogDao().save(log);
 
 		var list = new CompteDao().findAll();
-		TablePanel.getTableModel().initComptesData(list);
+		TablePanelCompte.getTableModel().initComptesData(list);
 
 		return newCompte.getPropriétaire();
 	}
@@ -144,7 +146,7 @@ public class ServiceAdmin extends JComponent implements IServiceAdmin {
 
 			new ClientDao().update(newclient);
 			var list = new ClientDao().findAll();
-			TablePanel.getTableModel().initClientsData(list);
+			TablePanelClient.getTableModel().initClientsData(list);
 		}
 		return newclient;
 	}
@@ -217,7 +219,7 @@ public class ServiceAdmin extends JComponent implements IServiceAdmin {
 
 		TableauDeBord tableauDeBord = new TableauDeBord(maxSolde, minSolde, totalClient, totalCompte,
 				NomClientPlusRiche, totalClientFemme, totalClientHomme);
-		AdminAccueilFrame.setTableauDeBord(tableauDeBord);
+		AdminAccueilPanel.setTableauDeBord(tableauDeBord);
 		return tableauDeBord;
 	}
 
