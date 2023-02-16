@@ -15,9 +15,6 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 
 import dao.daoFiles.CompteDao;
-import dao.daoFiles.LogDao;
-import metier.authentification.ServiceAuth;
-import presentation.modele.Client;
 import presentation.modele.Sexe;
 import vue.admin.AddAccountFrame;
 
@@ -47,11 +44,6 @@ public class TablePanelCompte extends JPanel {
 	private void initColDataCompte() {
 		getTableModel().initColumns("Id", "Date création", "Solde", "Id Client");
 		getTableModel().initComptesData(new CompteDao().findAll());
-	}
-
-	private void initColDataLog() {
-		getTableModel().initColumns("Numero de compte", "Date ", "Type", "Message");
-		getTableModel().initLogsData(new LogDao().findLogsOfUser((Client) ServiceAuth.getSession()));
 	}
 
 	private void initTable() {

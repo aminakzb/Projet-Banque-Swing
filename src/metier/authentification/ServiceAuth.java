@@ -9,6 +9,7 @@ import presentation.modele.Admin;
 import presentation.modele.Banque;
 import presentation.modele.Client;
 import presentation.modele.Utilisateur;
+import vue.LoginFrame;
 
 public class ServiceAuth implements IAuth {
 	Banque banque = new Banque();
@@ -62,8 +63,8 @@ public class ServiceAuth implements IAuth {
 
 	@Override
 	public void SeDéconnecter() {
-		// TODO Auto-generated method stub
-
+		ServiceAuth.setSession(null);
+		new LoginFrame("MyBank Manager Login");
 	}
 
 }

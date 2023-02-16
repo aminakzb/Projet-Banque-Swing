@@ -28,6 +28,7 @@ public class VerserPanel extends JPanel {
 		verser_btn.setForeground(Color.white);
 		verser_btn.setBackground(new Color(0, 153, 153));
 		verser_btn.setLocation(250, 400);
+		verser_btn.setFocusable(false);
 		initActions();
 	}
 

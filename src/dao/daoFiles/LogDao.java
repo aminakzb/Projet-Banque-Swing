@@ -87,6 +87,10 @@ public class LogDao implements IDao<Log, Long> {
 		return logs;
 	}
 
+	public Log findByNum(String numCompte) {
+		return findAll().stream().filter(log -> log.getNumCompteLog().equals(numCompte)).findFirst().orElse(null);
+	}
+
 	@Override
 	public Log findById(Long id) {
 		// TODO Auto-generated method stub
@@ -110,9 +114,8 @@ public class LogDao implements IDao<Log, Long> {
 	}
 
 	@Override
-	public List<Log> saveAll(List<Log> liste) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Log> saveAll(List<Log> listeLogs) {
+		return listeLogs.stream().map(log -> save(log)).collect(Collectors.toList());
 	}
 
 	@Override
@@ -122,9 +125,18 @@ public class LogDao implements IDao<Log, Long> {
 	}
 
 	@Override
-	public Boolean delete(Log t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean delete(Log logToDelete) {
+
+		var logs = findAll();
+		boolean deleted = logs.remove(logToDelete);
+
+		if (deleted) {
+
+			FileBasePaths.changeFile(FileBasePaths.LOGSFOLDER, FileBasePaths.LOG_TABLE_HEADER);
+			saveAll(logs);
+		}
+
+		return deleted;
 	}
 
 	@Override

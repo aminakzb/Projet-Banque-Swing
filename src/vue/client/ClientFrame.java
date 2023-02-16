@@ -22,7 +22,6 @@ import javax.swing.border.EmptyBorder;
 
 import metier.authentification.ServiceAuth;
 import presentation.modele.Client;
-import vue.LoginFrame;
 import vue.palette.HeaderPanel;
 import vue.palette.SideMenuPanel;
 import vue.palette.TablePanelLogs;
@@ -62,7 +61,7 @@ public class ClientFrame extends JFrame {
 		JMenuItem firstelement = new JMenuItem("Se déconnecter");
 		firstelement.addActionListener(e -> {
 			setVisible(false);
-			new LoginFrame("MyBank Manager Login");
+			new ServiceAuth().SeDéconnecter();
 		});
 		menu.add(firstelement);
 		menubar.add(menu);

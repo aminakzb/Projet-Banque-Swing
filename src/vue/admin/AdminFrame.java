@@ -23,7 +23,7 @@ import vue.palette.TablePanelAgence;
 import vue.palette.TablePanelClient;
 import vue.palette.TablePanelCompte;
 
-public class MyFrame extends JFrame {
+public class AdminFrame extends JFrame {
 
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Container container;
@@ -206,7 +206,7 @@ public class MyFrame extends JFrame {
 
 	}
 
-	public MyFrame(String title) {
+	public AdminFrame(String title) {
 
 		initContainer();
 		setTitle(title);

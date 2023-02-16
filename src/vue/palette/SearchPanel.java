@@ -39,6 +39,7 @@ public class SearchPanel extends JPanel {
 		btn_search.setBorderPainted(false);
 		btn_search.setOpaque(false);
 		btn_search.setContentAreaFilled(false);
+		btn_search.setFocusable(false);
 
 		btn_search.addMouseListener(new MouseAdapter() {
 			@Override

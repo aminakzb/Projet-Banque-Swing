@@ -16,7 +16,7 @@ import javax.swing.JPasswordField;
 import metier.authentification.ServiceAuth;
 import presentation.modele.Admin;
 import presentation.modele.Client;
-import vue.admin.MyFrame;
+import vue.admin.AdminFrame;
 import vue.client.ClientFrame;
 import vue.palette.HintTextField;
 import vue.palette.JCheckBoxIcon;
@@ -30,6 +30,15 @@ public class LoginFrame extends JFrame {
 	private JPasswordField textFieldMotDePass;
 	private JLabel background, errorLabelLogin, errorLabelMdp, errorLogin;
 	JCheckBox hideshowpass;
+	static JFrame frame;
+
+	public static JFrame getFrame() {
+		return frame;
+	}
+
+	public static void setFrame(JFrame frame) {
+		LoginFrame.frame = frame;
+	}
 
 	public HintTextField getTextFieldLogin() {
 		return textFieldLogin;
@@ -152,6 +161,7 @@ public class LoginFrame extends JFrame {
 		LoginBtn.setForeground(Color.white.brighter());
 		LoginBtn.setSize(225, 35);
 		LoginBtn.setLocation(400, 400);
+		LoginBtn.setFocusable(false);
 	}
 
 	public void initActions() {
@@ -164,10 +174,10 @@ public class LoginFrame extends JFrame {
 			service.seConnecter(login, pass);
 			if (service.seConnecter(login, pass).isEmpty()) {
 				if (ServiceAuth.getSession() instanceof Admin) {
-					new MyFrame("Bank Manager Admin");
+					frame = new AdminFrame("Bank Manager Admin");
 					setVisible(false);
 				} else if (ServiceAuth.getSession() instanceof Client) {
-					new ClientFrame("Bank Manager Client");
+					frame = new ClientFrame("Bank Manager Client");
 					setVisible(false);
 				} else
 					errorLogin.setVisible(true);

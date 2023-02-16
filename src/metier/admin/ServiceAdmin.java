@@ -159,7 +159,6 @@ public class ServiceAdmin extends JComponent implements IServiceAdmin {
 			String num = comptesAssocies.get(i).getNumeroCompte();
 			Compte compte = new CompteDao().findByNum(num);
 			new CompteDao().saveArchive(compte);
-			new CompteDao().delete(compte);
 		}
 
 		new ClientDao().deleteById(id);

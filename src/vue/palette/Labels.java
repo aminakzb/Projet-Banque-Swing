@@ -28,4 +28,9 @@ public class Labels extends JLabel {
 		setForeground(color);
 	}
 
+	public Labels(Color color, Font font) {
+		setFont(font);
+		setForeground(color);
+	}
+
 }

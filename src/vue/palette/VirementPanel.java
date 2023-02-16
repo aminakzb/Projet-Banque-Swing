@@ -33,6 +33,7 @@ public class VirementPanel extends JPanel {
 		virement_btn.setForeground(Color.white);
 		virement_btn.setBackground(new Color(0, 153, 153));
 		virement_btn.setLocation(250, 430);
+		virement_btn.setFocusable(false);
 		initActions();
 	}
 

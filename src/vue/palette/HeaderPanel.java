@@ -11,9 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import metier.authentification.ServiceAuth;
 import presentation.modele.Client;
 import presentation.modele.Sexe;
-import vue.LoginFrame;
 
 public class HeaderPanel extends JPanel {
 
@@ -103,7 +103,7 @@ public class HeaderPanel extends JPanel {
 		btn.setFocusable(false);
 		btn.addActionListener(e -> {
 			frame.setVisible(false);
-			new LoginFrame("MyBank Manager Login");
+			new ServiceAuth().SeDéconnecter();
 		});
 		add(btn, BorderLayout.EAST);
 	}

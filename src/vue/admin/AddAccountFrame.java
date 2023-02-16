@@ -98,8 +98,9 @@ public class AddAccountFrame extends JFrame {
 		addButton.setFont(new Font("Arial", Font.PLAIN, 15));
 		addButton.setSize(150, 40);
 		addButton.setForeground(Color.white);
-		addButton.setBackground(new Color(70, 130, 180));
+		addButton.setBackground(new Color(0, 153, 153));
 		addButton.setLocation(320, 500);
+		addButton.setFocusable(false);
 	}
 
 	public void initActions() {

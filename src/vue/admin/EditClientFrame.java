@@ -224,8 +224,9 @@ public class EditClientFrame extends JFrame {
 		editButton.setFont(new Font("Arial", Font.PLAIN, 15));
 		editButton.setSize(150, 40);
 		editButton.setForeground(Color.white);
-		editButton.setBackground(new Color(70, 130, 180));
+		editButton.setBackground(new Color(0, 153, 153));
 		editButton.setLocation(320, 500);
+		editButton.setFocusable(false);
 	}
 
 	public void initActions() {

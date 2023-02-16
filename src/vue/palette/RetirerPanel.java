@@ -33,6 +33,7 @@ public class RetirerPanel extends JPanel {
 		retirer_btn.setForeground(Color.white);
 		retirer_btn.setBackground(new Color(0, 153, 153));
 		retirer_btn.setLocation(250, 400);
+		retirer_btn.setFocusable(false);
 		initActions();
 	}
 

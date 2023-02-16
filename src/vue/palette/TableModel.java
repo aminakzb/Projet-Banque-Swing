@@ -54,10 +54,7 @@ public class TableModel extends AbstractTableModel {
 			data[i][0] = compte.getNumeroCompte();
 			data[i][1] = compte.getDateCreation();
 			data[i][2] = compte.getSolde();
-			if (compte.getPropriétaire() != null)
-				data[i][3] = compte.getPropriétaire().getId();
-			else
-				data[i][3] = "Archivé";
+			data[i][3] = compte.getPropriétaire().getId();
 			i++;
 		}
 

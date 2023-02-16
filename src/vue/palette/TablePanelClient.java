@@ -135,7 +135,6 @@ public class TablePanelClient extends JPanel {
 		});
 
 		searchPanel.getCrudPanel().addBtn().addActionListener(e -> {
-
 			new AddClientFrame("Add Client Form");
 
 		});
